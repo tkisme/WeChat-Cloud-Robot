@@ -1,0 +1,93 @@
+# -*- coding:utf-8 -*-
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>${title}</title>
+    <meta name="keywords" content="微信云端机器人">
+    <meta name="description" content="微信云端机器人">
+
+    <link rel="shortcut icon" href="img/favicon.ico"> <link href="css/bootstrap.min_AD7CC56B.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min_0AF76BA4.css" rel="stylesheet"><base target="_blank">
+    <!--[if lt IE 8]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <script>if(window.top !== window.self){ window.top.location = window.location;}</script>
+</head>
+
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen  animated fadeInDown">
+
+            <div>
+
+                <h1 class="logo-name">W+</h1>
+
+            </div>
+            <h3>微信云端机器人</h3>
+
+            <!-- <form class="m-t"  id="signupForm"  role="form"  method="post" action="/login.dll" target="_SELF"> -->
+            <form class="form-horizontal m-t" id="LoginFrom" method="post">
+                <div class="form-group">
+                    <input type="text" name="username" id="username" class="form-control" placeholder="用户名" required="">
+                </div>
+                <div class="form-group">
+                    <input type="password"  name="password" id="password" class="form-control" placeholder="密码" required="">
+                </div>
+                <button type="button" class="btn btn-primary block full-width m-b" id="loginBtn">登 录</button>
+
+
+                <p class="text-muted text-center"> <a href="logout"><i class="fa fa-key"><small>忘记密码了?</small></a> | <a href="register">注册一个新账号</a> <i class="fa fa-git-square"></i><a href="update_history">更新日志</a>
+                </p>
+                </form>
+            
+
+    </div>
+
+
+    <script src="js/jquery.min_FF924783.js"></script>
+    <script>
+
+
+        $("#loginBtn").click(function() {
+            //alert($("#username").val());
+            var username = $("#username").val();
+            var password = $("#password").val();
+            if(username==''){alert("请填写机器人ID");return;}
+            if(password==''){alert("请填写密码");return;}
+
+        $.ajax({
+        url : "login",
+        contentType: "application/json; charset=utf-8",
+        dataType : "json",
+        type : "post",
+        data : JSON.stringify({ "user": username, "pass": password}),//{"user":username,"pass":password},
+        success : function(data) {
+            if(data.login){
+                //alert(new Date().getTime()/1000);
+                window.location.href='/index';
+
+            }else{
+                alert("ID不存在或密码错误！");
+            }
+        
+        },
+        error : function() {
+
+        }
+    });
+        });
+</script>
+    <script src="js/bootstrap.min_AD7CC56B.js"></script>
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256744179'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D1256744179%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+
+</html>

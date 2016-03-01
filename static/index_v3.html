@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>微信智能云端机器人 - 云端统计</title>
+
+    <link rel="shortcut icon" href="img/favicon.ico"> <link href="css/bootstrap.min_AD7CC56B.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min_0AF76BA4.css" rel="stylesheet">
+    <base target="_blank">
+
+</head>
+
+<body class="gray-bg">
+     <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="row">
+                <div class="widget style1 yellow-bg">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <i class="fa fa-user fa-5x"></i>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <span> 今日被动粉丝</span>
+                            <h2 class="font-bold">${BDFSS}</h2>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>云端数据统计</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="graph_flot.html#">选项1</a>
+                                </li>
+                                <li><a href="graph_flot.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="echarts" id="echarts-line-chart"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>云端数据统计</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="graph_flot.html#">选项1</a>
+                                </li>
+                                <li><a href="graph_flot.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+                        <div class="echarts" id="echarts-bar-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="row">
+       </div>
+
+
+
+           
+
+
+
+
+
+
+
+
+     </div>
+
+
+    <script src="js/jquery.min_FF924783.js"></script>
+
+
+    <script src="js/bootstrap.min_AD7CC56B.js"></script>
+    <script src="js/plugins/echarts/echarts-all.js"></script>
+    <script src="js/content.min_4E9A9529.js"></script>
+
+          <script>
+$(function(){var myDate=new Date();var month=myDate.getMonth()+1;var e=echarts.init(document.getElementById("echarts-line-chart")),a={title:{text:"请求数与回复数"},tooltip:{trigger:"axis"},legend:{data:["请求数","回复数"]},grid:{x:40,x2:40,y2:24},calculable:!0,xAxis:[{type:"category",boundaryGap:!1,data:[month+"月"+(myDate.getDate()-6)+"日",month+"月"+(myDate.getDate()-5)+"日",month+"月"+(myDate.getDate()-4)+"日",month+"月"+(myDate.getDate()-3)+"日",month+"月"+(myDate.getDate()-2)+"日",month+"月"+(myDate.getDate()-1)+"日",month+"月"+myDate.getDate()+"日"]}],yAxis:[{type:"value",axisLabel:{formatter:"{value}"}}],series:[{name:"请求数",type:"line",data:${QQS},markPoint:{data:[{type:"max",name:"最大值"},{type:"min",name:"最小值"}]},markLine:{data:[{type:"average",name:"平均值"}]}},{name:"回复数",type:"line",data:${HFS},markPoint:{data:[{name:"周最低",value:20,xAxis:1,yAxis:-1.5}]},markLine:{data:[{type:"average",name:"平均值"}]}}]};e.setOption(a),$(window).resize(e.resize);var t=echarts.init(document.getElementById("echarts-bar-chart")),n={title:{text:"被动粉丝与活跃群数"},tooltip:{trigger:"axis"},legend:{data:["被动粉丝","活跃群数"]},grid:{x:30,x2:40,y2:24},calculable:!0,xAxis:[{type:"category",data:[month+"月"+(myDate.getDate()-6)+"日",month+"月"+(myDate.getDate()-5)+"日",month+"月"+(myDate.getDate()-4)+"日",month+"月"+(myDate.getDate()-3)+"日",month+"月"+(myDate.getDate()-2)+"日",month+"月"+(myDate.getDate()-1)+"日",month+"月"+myDate.getDate()+"日"]}],yAxis:[{type:"value"}],series:[{name:"被动粉丝",type:"bar",data:[67,89,123,67,78,134,23],markPoint:{data:[{type:"max",name:"最大值"},{type:"min",name:"最小值"}]},markLine:{data:[{type:"average",name:"平均值"}]}},{name:"活跃群数",type:"bar",data:[2.6,5.9,9,26.4,28.7,70.7,175.6,182.2,48.7,18.8,6,2.3],markPoint:{data:[{name:"最高",value:182.2,xAxis:7,yAxis:183,symbolSize:18},{name:"最低",value:2.3,xAxis:11,yAxis:3}]},markLine:{data:[{type:"average",name:"平均值"}]}}]};t.setOption(n),window.onresize=t.resize});
+        </script>
+</body>
+
+</html>
